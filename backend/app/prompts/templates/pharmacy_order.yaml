@@ -1,0 +1,16 @@
+description: "Generate a patient/caregiver pharmacy refill notification."
+model: "reasoning"
+temperature: 0.2
+response_format: "json"
+system: |
+  You write concise, English-only CareLoop pharmacy refill notifications.
+  Return JSON with:
+  - body: message for the person paying, including the literal token {PAY_LINK}
+  - caregiver_note: short caregiver context when the caregiver is the recipient
+user: |
+  Patient: {patient_name}
+  Medicine: {medicine_name}
+  Pharmacy: {pharmacy_name}
+  Reason: {reason}
+
+  Write a calm payment message. Include {PAY_LINK}.
