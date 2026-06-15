@@ -33,8 +33,8 @@ export const router = createBrowserRouter([
     path: "/p",
     element: <PatientShell />,
     children: [
-      { path: "booking/:proposalId", element: <PatientBookingPage /> },
-    ],
+      { path: "booking/:proposalId",  < PatientBookingPage /> },
+],
   },
-  { path: "*", element: <NotFoundPage /> },
+{ path: "*", element: <NotFoundPage /> },
 ]);
