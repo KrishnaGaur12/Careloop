@@ -1,8 +1,3 @@
-#Demo Video (Full project explanation)
-
-https://drive.google.com/file/d/1JtIIFH4s_BLQ6kWRgeIvlMNtpUmauvZT/view?usp=sharing
-
-
 # CareLoop
 
 > **An SDOH-aware agentic AI for post-discharge readmission prevention.**
