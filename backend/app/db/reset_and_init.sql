@@ -208,7 +208,24 @@ create index idx_med_supply_patient          on medication_support_plans(patient
 create index idx_med_supply_status           on medication_support_plans(status, next_refill_check_date);
 create index idx_med_supply_program_end      on medication_support_plans(program_end_date);
 
--- ---- 4. PostgREST schema cache reload (so the new column is visible immediately) ----
+-- ---- 4. Enable Row Level Security (RLS) on all tables to prevent public access ----
+alter table if exists doctors enable row level security;
+alter table if exists patients enable row level security;
+alter table if exists clinical_data enable row level security;
+alter table if exists sdoh_profiles enable row level security;
+alter table if exists knowledge_graphs enable row level security;
+alter table if exists care_plans enable row level security;
+alter table if exists interactions enable row level security;
+alter table if exists escalations enable row level security;
+alter table if exists pharmacies enable row level security;
+alter table if exists medications_inventory enable row level security;
+alter table if exists pharmacy_orders enable row level security;
+alter table if exists prompts enable row level security;
+alter table if exists reasoning_traces enable row level security;
+alter table if exists slot_proposals enable row level security;
+alter table if exists medication_support_plans enable row level security;
+
+-- ---- 5. PostgREST schema cache reload (so the new column is visible immediately) ----
 notify pgrst, 'reload schema';
 
 -- Done. You should see "Success. No rows returned." Now hit POST /api/seed

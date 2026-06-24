@@ -193,3 +193,20 @@ create index if not exists idx_med_supply_program_end on medication_support_plan
 alter table if exists pharmacy_orders add column if not exists notes text;
 -- Idempotent column add for delivery_status (separate from payment_status).
 alter table if exists pharmacy_orders add column if not exists delivery_status text default 'pending';
+
+-- Enable Row Level Security (RLS) on all tables to prevent public access
+alter table if exists doctors enable row level security;
+alter table if exists patients enable row level security;
+alter table if exists clinical_data enable row level security;
+alter table if exists sdoh_profiles enable row level security;
+alter table if exists knowledge_graphs enable row level security;
+alter table if exists care_plans enable row level security;
+alter table if exists interactions enable row level security;
+alter table if exists escalations enable row level security;
+alter table if exists pharmacies enable row level security;
+alter table if exists medications_inventory enable row level security;
+alter table if exists pharmacy_orders enable row level security;
+alter table if exists prompts enable row level security;
+alter table if exists reasoning_traces enable row level security;
+alter table if exists slot_proposals enable row level security;
+alter table if exists medication_support_plans enable row level security;
